@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import Logout from "./components/Logout";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/home">
+            <Home />
           </Route>
           <Route path="/dashboard">
             {/* private route here */}
