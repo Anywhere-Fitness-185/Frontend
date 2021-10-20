@@ -9,8 +9,43 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import Logout from "./components/Logout";
+import Home from "./components/Home";
+
+
+
+
+
+const initialLoginValues = {
+  username: '',
+  password: '',
+};
+
 
 function App() {
+  const [inputs, setInputs] = useState(initialValues);
+  const [loginValues, setLoginValues] = useState(initialLoginValues);
+
+  
+// On change handler for the login values in Login.js
+const loginChange = (name, value) => {
+  setLoginValues({
+    ...loginValues,
+    [name]: value,
+  });
+};
+
+// Login function
+const onLogin = () => {
+  const user = {
+    username: loginValues.username,
+    password: loginValues.password,
+  };
+  loginUser(user);
+};
+
+
+
+
   return (
     <div className="App">
       <header id="header" className="alt">
@@ -20,6 +55,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/home">
+            <Home />
           </Route>
           <Route path="/dashboard">
             {/* private route here */}
